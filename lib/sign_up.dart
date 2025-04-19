@@ -45,8 +45,8 @@ class _SignUp_pageState extends State<SignUp_page> {
                 SizedBox(height: 12),
                 CustomTextFormFiled(
                   controller: emailController,
-                  hintText: 'Email',
-                  prefixIcon: const Icon(Icons.email_outlined, size: 18),
+                  hintText: 'User Name',
+                  prefixIcon: const Icon(Icons.person, size: 18),
                   validator: (value) {
                     if (value == null ||
                         value.isEmpty ||
@@ -61,7 +61,7 @@ class _SignUp_pageState extends State<SignUp_page> {
                   controller: passwordController,
                   hintText: 'Password',
                   isObscureText: isPasswordHidden,
-                  prefixIcon: const Icon(Icons.lock_outline_rounded, size: 18),
+                  prefixIcon: const Icon(Icons.key, size: 18),
                   suffixIcon: IconButton(
                     icon: Icon(
                       isPasswordHidden

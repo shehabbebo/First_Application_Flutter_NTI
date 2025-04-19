@@ -34,7 +34,7 @@ class CustomTextFormFiled extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final Color? backgroundColor;
-  final FormFieldValidator<String>? validator;
+  final String? Function(String?)? validator;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
 

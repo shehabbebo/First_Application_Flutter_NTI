@@ -9,6 +9,10 @@ class AppRegex {
     ).hasMatch(password);
   }
 
+  // static bool isPasswordValid(String password) {
+  //   return RegExp(r'^\d{9,}$').hasMatch(password);
+  // }
+
   static bool hasLowerCase(String input) {
     return input.contains(RegExp(r'[a-z]'));
   }
