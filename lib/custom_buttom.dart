@@ -7,8 +7,8 @@ class CustomBottom extends StatelessWidget {
     required this.onPressed,
     this.backgroundColor = const Color(0xff149954),
     this.textColor = Colors.white,
-    this.height = 48,
-    this.width = 347,
+    this.height = 40,
+    this.width = 300,
     this.fontSize = 18,
     this.fontWeight = FontWeight.w500,
   });
@@ -24,22 +24,25 @@ class CustomBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      width: width,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          foregroundColor: textColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: SizedBox(
+        height: height,
+        width: width,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: backgroundColor,
+            foregroundColor: textColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            elevation: 0,
           ),
-          elevation: 0,
-        ),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: TextStyle(fontSize: fontSize, fontWeight: fontWeight),
+          onPressed: onPressed,
+          child: Text(
+            text,
+            style: TextStyle(fontSize: fontSize, fontWeight: fontWeight),
+          ),
         ),
       ),
     );

@@ -40,35 +40,53 @@ class CustomTextFormFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      onChanged: onChange,
-      onSaved: onSaved,
-      obscureText: isObscureText,
-      keyboardType: keyboardType,
-      style: inputTextStyle,
-      decoration: InputDecoration(
-        filled: backgroundColor != null,
-        fillColor: backgroundColor,
-        isDense: true,
-        contentPadding:
-            contentPading ??
-            const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-        suffixIcon: suffixIcon,
-        prefixIcon: prefixIcon,
-        hintText: hintText,
-        hintStyle: const TextStyle(
-          color: Color(0xff929BAB),
-          fontSize: 14,
-          fontWeight: FontWeight.normal,
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          color: backgroundColor ?? Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 6,
+              spreadRadius: 2,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-        enabledBorder: enableBorder ?? customBorder(),
-        focusedBorder: focusBorder ?? customBorder(Colors.lightBlue.shade100),
-        errorBorder: errorBorder ?? customBorder(Colors.red),
-        focusedErrorBorder: focusErrorBorder ?? customBorder(Colors.red),
-        errorStyle: const TextStyle(fontSize: 12),
+        child: TextFormField(
+          controller: controller,
+          onChanged: onChange,
+          onSaved: onSaved,
+          obscureText: isObscureText,
+          keyboardType: keyboardType,
+          style: inputTextStyle,
+          decoration: InputDecoration(
+            filled: backgroundColor != null,
+            fillColor: backgroundColor,
+            isDense: true,
+            contentPadding:
+                contentPading ??
+                const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            suffixIcon: suffixIcon,
+            prefixIcon: prefixIcon,
+            hintText: hintText,
+            hintStyle: const TextStyle(
+              color: Color(0xff929BAB),
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
+            ),
+            enabledBorder: enableBorder ?? customBorder(),
+            focusedBorder:
+                focusBorder ?? customBorder(Colors.lightBlue.shade100),
+            errorBorder: errorBorder ?? customBorder(Colors.red),
+            focusedErrorBorder: focusErrorBorder ?? customBorder(Colors.red),
+            errorStyle: const TextStyle(fontSize: 12),
+          ),
+          validator: validator,
+        ),
       ),
-      validator: validator,
     );
   }
 
