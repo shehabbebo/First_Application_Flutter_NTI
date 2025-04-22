@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Login_page.dart';
-import 'package:two_day_flutter/add_task.dart';
-import 'package:two_day_flutter/change_password.dart';
-import 'package:two_day_flutter/lanuage.dart';
-import 'package:two_day_flutter/splash.dart';
-import 'package:two_day_flutter/update_profile.dart';
+import 'package:two_day_flutter/datails.dart';
+import 'package:two_day_flutter/utils/Routes.dart';
+import 'package:two_day_flutter/utils/string.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp(appRouter: AppRouter()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.appRouter});
+  final AppRouter appRouter;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Lanuage_page());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: appRouter.generateRouter,
+      initialRoute: Routes.Datails,
+    );
   }
 }
