@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/utils/string.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class Home_notask_view extends StatelessWidget {
+  const Home_notask_view({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,14 @@ class HomePage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, Routes.Datails);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        Routes.Profile_view,
+                      );
                     },
                     child: const CircleAvatar(
                       radius: 28,
-                      backgroundImage: AssetImage('assets/images/logo.jpg'),
+                      backgroundImage: AssetImage(AppAssets.logo),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -48,7 +52,7 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushReplacementNamed(
                         context,
-                        Routes.HomeTaskPage,
+                        Routes.AddTask_view,
                       );
                     },
                     icon: const Icon(Icons.add_box_outlined),

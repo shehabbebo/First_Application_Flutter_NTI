@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Custom_Text_filed.dart';
-import 'package:two_day_flutter/app_regex.dart';
-import 'package:two_day_flutter/custom_buttom.dart';
-import 'package:two_day_flutter/utils/App_color.dart';
+import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
+import 'package:two_day_flutter/core/utils/app_regex.dart';
+import 'package:two_day_flutter/core/utils/custom_buttom.dart';
+import 'package:two_day_flutter/core/utils/App_color.dart';
 
-class ChangePassword extends StatefulWidget {
-  const ChangePassword({super.key});
+class ChangePassword_view extends StatefulWidget {
+  const ChangePassword_view({super.key});
 
   @override
-  State<ChangePassword> createState() => _ChangePasswordState();
+  State<ChangePassword_view> createState() => _ChangePassword_viewState();
 }
 
-class _ChangePasswordState extends State<ChangePassword> {
+class _ChangePassword_viewState extends State<ChangePassword_view> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =

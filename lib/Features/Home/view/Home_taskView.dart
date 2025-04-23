@@ -1,63 +1,8 @@
-// import 'package:flutter/material.dart';
-
-// class HomeTask_page extends StatelessWidget {
-//   const HomeTask_page({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       body: SafeArea(
-//         child: Padding(
-//           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               Row(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   const CircleAvatar(
-//                     radius: 28,
-//                     backgroundImage: AssetImage('assets/images/logo.jpg'),
-//                   ),
-//                   const SizedBox(width: 12),
-//                   const Column(
-//                     crossAxisAlignment: CrossAxisAlignment.start,
-//                     children: [
-//                       Text(
-//                         "Hello!",
-//                         style: TextStyle(fontSize: 12, color: Colors.black54),
-//                       ),
-//                       Text(
-//                         "shehab",
-//                         style: TextStyle(
-//                           fontSize: 18,
-//                           fontWeight: FontWeight.bold,
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                   const Spacer(),
-//                   IconButton(
-//                     onPressed: () {},
-//                     icon: const Icon(Icons.add_box_outlined),
-//                   ),
-//                 ],
-//               ),
-//               const SizedBox(height: 40),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/utils/string.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
-class HomeTaskPage extends StatelessWidget {
-  const HomeTaskPage({super.key});
+class HomeTask_view extends StatelessWidget {
+  const HomeTask_view({super.key});
 
   final List<Map<String, String>> tasks = const [
     {
@@ -101,7 +46,10 @@ class HomeTaskPage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, Routes.Datails);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        Routes.Profile_view,
+                      );
                     },
                     child: const CircleAvatar(
                       radius: 28,

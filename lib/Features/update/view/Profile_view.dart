@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/utils/string.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
-class Datails extends StatelessWidget {
-  const Datails({super.key});
+class Profile_view extends StatelessWidget {
+  const Profile_view({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,10 @@ class Datails extends StatelessWidget {
                 icon: Icons.person_outline,
                 title: 'Update Profile',
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, Routes.UpdateProfile);
+                  Navigator.pushReplacementNamed(
+                    context,
+                    Routes.UpdateProfile_view,
+                  );
                 },
               ),
               const SizedBox(height: 12),
@@ -56,7 +59,7 @@ class Datails extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacementNamed(
                     context,
-                    Routes.ChangePassword,
+                    Routes.ChangePassword_view,
                   );
                 },
               ),
@@ -65,7 +68,7 @@ class Datails extends StatelessWidget {
                 icon: Icons.settings_outlined,
                 title: 'Settings',
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, Routes.Lanuage_page);
+                  Navigator.pushReplacementNamed(context, Routes.Lanuage_view);
                 },
               ),
             ],

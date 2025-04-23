@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Login_page.dart';
-import 'package:two_day_flutter/custom_buttom.dart';
-import 'package:two_day_flutter/utils/App_color.dart';
+import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
+import 'package:two_day_flutter/core/utils/custom_buttom.dart';
+import 'package:two_day_flutter/core/utils/App_color.dart';
+import 'package:two_day_flutter/core/utils/App_constant.dart';
 
-class Start_page extends StatelessWidget {
-  const Start_page({super.key});
+class Start_view extends StatelessWidget {
+  const Start_view({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class Start_page extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.w400,
+              fontFamily: AppConstants.fontFamily,
               color: AppColor.black,
             ),
           ),
@@ -36,6 +38,7 @@ class Start_page extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
+              fontFamily: AppConstants.fontFamily,
               color: Color(0xff6E6A7C),
             ),
           ),

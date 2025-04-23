@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Custom_Text_filed.dart';
-import 'package:two_day_flutter/Login_page.dart';
-import 'package:two_day_flutter/app_regex.dart';
-import 'package:two_day_flutter/custom_buttom.dart';
-import 'package:two_day_flutter/utils/App_color.dart';
-import 'package:two_day_flutter/utils/string.dart';
+import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
+import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
+import 'package:two_day_flutter/core/utils/app_regex.dart';
+import 'package:two_day_flutter/core/utils/custom_buttom.dart';
+import 'package:two_day_flutter/core/utils/App_color.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
 class SignUp_page extends StatefulWidget {
   const SignUp_page({super.key});
@@ -86,7 +86,10 @@ class _SignUp_pageState extends State<SignUp_page> {
                 if (formkey.currentState!.validate()) {
                   print('Email: ${emailController.text}');
                   print('Password: ${passwordController.text}');
-                  Navigator.pushReplacementNamed(context, Routes.HomePage);
+                  Navigator.pushReplacementNamed(
+                    context,
+                    Routes.Home_notask_view,
+                  );
                 } else {
                   print('Please fix the errors');
                 }

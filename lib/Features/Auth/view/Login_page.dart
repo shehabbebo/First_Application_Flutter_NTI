@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Custom_Text_filed.dart';
-import 'package:two_day_flutter/app_regex.dart';
-import 'package:two_day_flutter/custom_buttom.dart';
-import 'package:two_day_flutter/sign_up.dart';
-import 'package:two_day_flutter/utils/App_color.dart';
-import 'package:two_day_flutter/utils/string.dart';
+import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
+import 'package:two_day_flutter/core/utils/app_regex.dart';
+import 'package:two_day_flutter/core/utils/custom_buttom.dart';
+import 'package:two_day_flutter/Features/Auth/view/sign_up.dart';
+import 'package:two_day_flutter/core/utils/App_color.dart';
+import 'package:two_day_flutter/core/utils/App_constant.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -181,7 +182,13 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   Expanded(
-                    child: Text('Must Agree', style: TextStyle(fontSize: 14)),
+                    child: Text(
+                      'Must Agree',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: AppConstants.fontFamily,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -207,7 +214,10 @@ class _LoginPageState extends State<LoginPage> {
                     print('Username: ${emailController.text}');
                     print('Password: ${passwordController.text}');
                     print('Gender: $selectedGender');
-                    Navigator.pushReplacementNamed(context, Routes.HomePage);
+                    Navigator.pushReplacementNamed(
+                      context,
+                      Routes.Home_notask_view,
+                    );
                   } else {
                     print('Please fix the errors');
                   }
@@ -222,6 +232,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
+                      fontFamily: AppConstants.fontFamily,
                       color: Color(0xff51526C),
                     ),
                   ),

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Custom_Text_filed.dart';
-import 'package:two_day_flutter/app_regex.dart';
-import 'package:two_day_flutter/custom_buttom.dart';
-import 'package:two_day_flutter/utils/App_color.dart';
-import 'package:two_day_flutter/utils/string.dart';
+import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
+import 'package:two_day_flutter/core/utils/app_regex.dart';
+import 'package:two_day_flutter/core/utils/custom_buttom.dart';
+import 'package:two_day_flutter/core/utils/App_color.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
-class AddTask extends StatefulWidget {
-  const AddTask({super.key});
+class AddTask_view extends StatefulWidget {
+  const AddTask_view({super.key});
 
   @override
-  State<AddTask> createState() => _AddTaskState();
+  State<AddTask_view> createState() => _AddTask_viewState();
 }
 
-class _AddTaskState extends State<AddTask> {
+class _AddTask_viewState extends State<AddTask_view> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   final TextEditingController emailController = TextEditingController();
@@ -29,10 +29,10 @@ class _AddTaskState extends State<AddTask> {
             IconButton(
               icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, Routes.Datails);
+                Navigator.pushReplacementNamed(context, Routes.Profile_view);
               },
             ),
-            SizedBox(width: 140),
+            SizedBox(width: 80),
             Title(
               color: Colors.black,
               child: Text("Add Task", style: TextStyle(fontSize: 24)),

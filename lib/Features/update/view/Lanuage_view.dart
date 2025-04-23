@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/utils/App_color.dart';
-import 'package:two_day_flutter/utils/string.dart';
+import 'package:two_day_flutter/core/utils/App_color.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
-class Lanuage_page extends StatefulWidget {
-  const Lanuage_page({super.key});
+class Lanuage_view extends StatefulWidget {
+  const Lanuage_view({super.key});
 
   @override
-  State<Lanuage_page> createState() => _Lanuage_pageState();
+  State<Lanuage_view> createState() => _Lanuage_viewState();
 }
 
-class _Lanuage_pageState extends State<Lanuage_page> {
+class _Lanuage_viewState extends State<Lanuage_view> {
   String selectedLang = 'EN';
 
   @override
@@ -24,7 +24,7 @@ class _Lanuage_pageState extends State<Lanuage_page> {
             IconButton(
               icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, Routes.Datails);
+                Navigator.pushReplacementNamed(context, Routes.Profile_view);
               },
             ),
             SizedBox(width: 140),

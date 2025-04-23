@@ -70,6 +70,9 @@ flutter:
       fonts:
         - asset: assets/fonts/Lexend Deca/LexendDeca-Light.ttf
         - asset: assets/fonts/Lexend Deca/LexendDeca-Black.ttf
+        - asset: assets/fonts/Lexend Deca/LexendDeca-Regular.ttf
+        - asset: assets/fonts/Lexend Deca/LexendDeca-ExtraBold.ttf
+        - asset: assets/fonts/Lexend Deca/LexendDeca-Light.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
