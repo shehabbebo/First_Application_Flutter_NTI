@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:two_day_flutter/utils/App_color.dart';
+import 'package:two_day_flutter/utils/string.dart';
 
 class Lanuage_page extends StatefulWidget {
   const Lanuage_page({super.key});
@@ -15,6 +16,25 @@ class _Lanuage_pageState extends State<Lanuage_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.ScaffoldBackgroundColor,
+      appBar: AppBar(
+        backgroundColor: AppColor.ScaffoldBackgroundColor,
+        elevation: 0,
+        leading: Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, Routes.Datails);
+              },
+            ),
+            SizedBox(width: 140),
+            Title(
+              color: Colors.black,
+              child: Text("Settings", style: TextStyle(fontSize: 24)),
+            ),
+          ],
+        ),
+      ),
 
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),

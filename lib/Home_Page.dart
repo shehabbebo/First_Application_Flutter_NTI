@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:two_day_flutter/utils/string.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,9 +17,14 @@ class HomePage extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CircleAvatar(
-                    radius: 28,
-                    backgroundImage: AssetImage('assets/images/logo.jpg'),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, Routes.Datails);
+                    },
+                    child: const CircleAvatar(
+                      radius: 28,
+                      backgroundImage: AssetImage('assets/images/logo.jpg'),
+                    ),
                   ),
                   const SizedBox(width: 12),
                   const Column(
@@ -39,7 +45,12 @@ class HomePage extends StatelessWidget {
                   ),
                   const Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        Routes.HomeTaskPage,
+                      );
+                    },
                     icon: const Icon(Icons.add_box_outlined),
                   ),
                 ],

@@ -3,6 +3,7 @@ import 'package:two_day_flutter/Custom_Text_filed.dart';
 import 'package:two_day_flutter/app_regex.dart';
 import 'package:two_day_flutter/custom_buttom.dart';
 import 'package:two_day_flutter/utils/App_color.dart';
+import 'package:two_day_flutter/utils/string.dart';
 
 class AddTask extends StatefulWidget {
   const AddTask({super.key});
@@ -20,6 +21,25 @@ class _AddTaskState extends State<AddTask> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.ScaffoldBackgroundColor,
+      appBar: AppBar(
+        backgroundColor: AppColor.ScaffoldBackgroundColor,
+        elevation: 0,
+        leading: Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, Routes.Datails);
+              },
+            ),
+            SizedBox(width: 140),
+            Title(
+              color: Colors.black,
+              child: Text("Add Task", style: TextStyle(fontSize: 24)),
+            ),
+          ],
+        ),
+      ),
       body: Form(
         key: formkey,
         child: Padding(

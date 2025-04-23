@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:two_day_flutter/utils/string.dart';
 
 class profile_page_item extends StatelessWidget {
   const profile_page_item({super.key});
@@ -45,7 +46,7 @@ class profile_page_item extends StatelessWidget {
                 icon: Icons.person_outline,
                 title: 'Update Profile',
                 onTap: () {
-                  // Navigation or action here
+                  Navigator.pushReplacementNamed(context, Routes.UpdateProfile);
                 },
               ),
               const SizedBox(height: 12),
@@ -53,7 +54,10 @@ class profile_page_item extends StatelessWidget {
                 icon: Icons.lock_outline,
                 title: 'Change Password',
                 onTap: () {
-                  // Navigation or action here
+                  Navigator.pushReplacementNamed(
+                    context,
+                    Routes.ChangePassword,
+                  );
                 },
               ),
               const SizedBox(height: 12),
@@ -61,7 +65,7 @@ class profile_page_item extends StatelessWidget {
                 icon: Icons.settings_outlined,
                 title: 'Settings',
                 onTap: () {
-                  // Navigation or action here
+                  Navigator.pushReplacementNamed(context, Routes.Lanuage_page);
                 },
               ),
             ],

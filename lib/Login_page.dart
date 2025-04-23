@@ -4,6 +4,7 @@ import 'package:two_day_flutter/app_regex.dart';
 import 'package:two_day_flutter/custom_buttom.dart';
 import 'package:two_day_flutter/sign_up.dart';
 import 'package:two_day_flutter/utils/App_color.dart';
+import 'package:two_day_flutter/utils/string.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,211 +33,218 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: AppColor.ScaffoldBackgroundColor,
       body: Form(
         key: formkey,
-        child: Column(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.36,
-              width: double.infinity,
-              child: Image.asset('assets/images/logo.jpg', fit: BoxFit.fill),
-            ),
-            SizedBox(height: 15),
-            CustomTextFormFiled(
-              backgroundColor: AppColor.white,
-              controller: emailController,
-              hintText: 'User Name',
-              prefixIcon: const Icon(Icons.person, size: 18),
-              validator: (value) {
-                if (value == null ||
-                    value.isEmpty ||
-                    !AppRegex.isEmailValid(value)) {
-                  return 'Please enter a valid email';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 12),
-            CustomTextFormFiled(
-              backgroundColor: AppColor.white,
-              controller: passwordController,
-              hintText: 'Password',
-              isObscureText: isPasswordHidden,
-              prefixIcon: const Icon(Icons.key, size: 18),
-              suffixIcon: IconButton(
-                icon: Icon(
-                  isPasswordHidden ? Icons.visibility_off : Icons.visibility,
-                ),
-                onPressed: () {
-                  setState(() {
-                    isPasswordHidden = !isPasswordHidden;
-                  });
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.36,
+                width: double.infinity,
+                child: Image.asset('assets/images/logo.jpg', fit: BoxFit.fill),
+              ),
+              SizedBox(height: 15),
+              CustomTextFormFiled(
+                backgroundColor: AppColor.white,
+                controller: emailController,
+                hintText: 'User Name',
+                prefixIcon: const Icon(Icons.person, size: 18),
+                validator: (value) {
+                  if (value == null ||
+                      value.isEmpty ||
+                      !AppRegex.isEmailValid(value)) {
+                    return 'Please enter a valid email';
+                  }
+                  return null;
                 },
               ),
-              validator: (value) {
-                if (value == null ||
-                    value.isEmpty ||
-                    !AppRegex.isPasswordValid(value)) {
-                  return 'Please enter a valid password';
-                }
-                return null;
-              },
-            ),
-            SizedBox(height: 12),
-            CustomTextFormFiled(
-              backgroundColor: AppColor.white,
-              controller: confirmPasswordController,
-              hintText: 'Confirm Password',
-              isObscureText: isConfirmPasswordHidden,
-              prefixIcon: const Icon(Icons.key, size: 18),
-              suffixIcon: IconButton(
-                icon: Icon(
-                  isConfirmPasswordHidden
-                      ? Icons.visibility_off
-                      : Icons.visibility,
-                ),
-                onPressed: () {
-                  setState(() {
-                    isConfirmPasswordHidden = !isConfirmPasswordHidden;
-                  });
-                },
-              ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please confirm your password';
-                } else if (value != passwordController.text) {
-                  return 'Passwords do not match';
-                }
-                return null;
-              },
-            ),
-
-            SizedBox(height: 12),
-
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: AppColor.ScaffoldBackgroundColor ?? Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 6,
-                      spreadRadius: 2,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: DropdownButtonFormField<String>(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: Colors.lightBlue.shade100),
-                    ),
-                    contentPadding: EdgeInsets.symmetric(horizontal: 12),
-                    filled: true,
-                    fillColor: Colors.white,
+              SizedBox(height: 12),
+              CustomTextFormFiled(
+                backgroundColor: AppColor.white,
+                controller: passwordController,
+                hintText: 'Password',
+                isObscureText: isPasswordHidden,
+                prefixIcon: const Icon(Icons.key, size: 18),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    isPasswordHidden ? Icons.visibility_off : Icons.visibility,
                   ),
-                  value: selectedGender,
-                  items:
-                      ['Male', 'Female', 'Other'].map((gender) {
-                        return DropdownMenuItem<String>(
-                          value: gender,
-                          child: Text(gender),
-                        );
-                      }).toList(),
-                  onChanged: (value) {
+                  onPressed: () {
                     setState(() {
-                      selectedGender = value!;
+                      isPasswordHidden = !isPasswordHidden;
                     });
                   },
                 ),
+                validator: (value) {
+                  if (value == null ||
+                      value.isEmpty ||
+                      !AppRegex.isPasswordValid(value)) {
+                    return 'Please enter a valid password';
+                  }
+                  return null;
+                },
               ),
-            ),
+              SizedBox(height: 12),
+              CustomTextFormFiled(
+                backgroundColor: AppColor.white,
+                controller: confirmPasswordController,
+                hintText: 'Confirm Password',
+                isObscureText: isConfirmPasswordHidden,
+                prefixIcon: const Icon(Icons.key, size: 18),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    isConfirmPasswordHidden
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      isConfirmPasswordHidden = !isConfirmPasswordHidden;
+                    });
+                  },
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please confirm your password';
+                  } else if (value != passwordController.text) {
+                    return 'Passwords do not match';
+                  }
+                  return null;
+                },
+              ),
 
-            SizedBox(height: 12),
+              SizedBox(height: 12),
 
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Checkbox(
-                    value: agreeToTerms,
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.ScaffoldBackgroundColor ?? Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 6,
+                        spreadRadius: 2,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(
+                          color: Colors.lightBlue.shade100,
+                        ),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    value: selectedGender,
+                    items:
+                        ['Male', 'Female', 'Other'].map((gender) {
+                          return DropdownMenuItem<String>(
+                            value: gender,
+                            child: Text(gender),
+                          );
+                        }).toList(),
                     onChanged: (value) {
                       setState(() {
-                        agreeToTerms = value!;
+                        selectedGender = value!;
                       });
                     },
                   ),
                 ),
-                Expanded(
-                  child: Text('Must Agree', style: TextStyle(fontSize: 14)),
-                ),
-              ],
-            ),
+              ),
 
-            SizedBox(height: 10),
-            CustomBottom(
-              text: 'Sign Up',
-              onPressed: () {
-                if (formkey.currentState!.validate()) {
-                  if (!agreeToTerms) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          'You must agree to the terms and conditions',
-                        ),
-                      ),
-                    );
-                    return;
-                  }
+              SizedBox(height: 12),
 
-                  print('Username: ${emailController.text}');
-                  print('Password: ${passwordController.text}');
-                  print('Gender: $selectedGender');
-                } else {
-                  print('Please fix the errors');
-                }
-              },
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Already Have An Account? ',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xff51526C),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUp_page()),
-                    );
-                  },
-                  child: Text(
-                    ' Login?',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Checkbox(
+                      value: agreeToTerms,
+                      onChanged: (value) {
+                        setState(() {
+                          agreeToTerms = value!;
+                        });
+                      },
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  Expanded(
+                    child: Text('Must Agree', style: TextStyle(fontSize: 14)),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 10),
+              CustomBottom(
+                height: 45,
+                width: 331,
+                text: 'Sign Up',
+                onPressed: () {
+                  if (formkey.currentState!.validate()) {
+                    if (!agreeToTerms) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'You must agree to the terms and conditions',
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+
+                    print('Username: ${emailController.text}');
+                    print('Password: ${passwordController.text}');
+                    print('Gender: $selectedGender');
+                    Navigator.pushReplacementNamed(context, Routes.HomePage);
+                  } else {
+                    print('Please fix the errors');
+                  }
+                },
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Already Have An Account? ',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff51526C),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUp_page()),
+                      );
+                    },
+                    child: Text(
+                      ' Login?',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -19,4 +19,5 @@ class Routes {
   static const UpdateProfile = '/UpdateProfile';
   static const ChangePassword = '/ChangePassword';
   static const Lanuage_page = '/Lanuage_page';
+  static const AddTask = '/AddTask';
 }

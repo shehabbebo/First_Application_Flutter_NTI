@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:two_day_flutter/Home_Page.dart';
 import 'package:two_day_flutter/Home_task.dart';
 import 'package:two_day_flutter/Login_page.dart';
+import 'package:two_day_flutter/add_task.dart';
 import 'package:two_day_flutter/change_password.dart';
 import 'package:two_day_flutter/datails.dart';
 import 'package:two_day_flutter/lanuage.dart';
@@ -35,6 +36,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ChangePassword());
       case Routes.Datails:
         return MaterialPageRoute(builder: (_) => Datails());
+      case Routes.AddTask:
+        return MaterialPageRoute(builder: (_) => AddTask());
 
       default:
         return MaterialPageRoute(

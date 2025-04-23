@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/datails.dart';
 import 'package:two_day_flutter/utils/Routes.dart';
 import 'package:two_day_flutter/utils/string.dart';
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRouter,
-      initialRoute: Routes.Datails,
+      initialRoute: Routes.Splash_page,
     );
   }
 }

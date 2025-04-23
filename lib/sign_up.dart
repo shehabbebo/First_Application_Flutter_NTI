@@ -4,6 +4,7 @@ import 'package:two_day_flutter/Login_page.dart';
 import 'package:two_day_flutter/app_regex.dart';
 import 'package:two_day_flutter/custom_buttom.dart';
 import 'package:two_day_flutter/utils/App_color.dart';
+import 'package:two_day_flutter/utils/string.dart';
 
 class SignUp_page extends StatefulWidget {
   const SignUp_page({super.key});
@@ -79,10 +80,13 @@ class _SignUp_pageState extends State<SignUp_page> {
             SizedBox(height: 20),
             CustomBottom(
               text: 'Sign Up',
+              height: 45,
+              width: 331,
               onPressed: () {
                 if (formkey.currentState!.validate()) {
                   print('Email: ${emailController.text}');
                   print('Password: ${passwordController.text}');
+                  Navigator.pushReplacementNamed(context, Routes.HomePage);
                 } else {
                   print('Please fix the errors');
                 }
