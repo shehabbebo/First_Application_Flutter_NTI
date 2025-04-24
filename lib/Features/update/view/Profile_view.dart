@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/string.dart';
 
 class Profile_view extends StatelessWidget {
@@ -17,9 +18,18 @@ class Profile_view extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        Routes.HomeTask_view,
+                      );
+                    },
+                  ),
                   const CircleAvatar(
                     radius: 28,
-                    backgroundImage: AssetImage('assets/images/logo.jpg'),
+                    backgroundImage: AssetImage(AppAssets.logo),
                   ),
                   const SizedBox(width: 12),
                   const Column(
@@ -40,7 +50,7 @@ class Profile_view extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 37),
 
               _buildOption(
                 icon: Icons.person_outline,
@@ -52,7 +62,7 @@ class Profile_view extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 25),
               _buildOption(
                 icon: Icons.lock_outline,
                 title: 'Change Password',
@@ -63,7 +73,7 @@ class Profile_view extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 25),
               _buildOption(
                 icon: Icons.settings_outlined,
                 title: 'Settings',
@@ -84,9 +94,10 @@ class Profile_view extends StatelessWidget {
     required VoidCallback onTap,
   }) {
     return Container(
+      height: 55,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.1),

@@ -16,7 +16,7 @@ class SignUp_page extends StatefulWidget {
 class _SignUp_pageState extends State<SignUp_page> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController userNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
@@ -38,15 +38,30 @@ class _SignUp_pageState extends State<SignUp_page> {
               child: Image.asset('assets/images/logo.jpg', fit: BoxFit.fill),
             ),
             SizedBox(height: 15),
+            // CustomTextFormFiled(
+            //   controller: emailController,
+            //   hintText: 'Email',
+            //   prefixIcon: const Icon(Icons.person, size: 18),
+            //   validator: (value) {
+            //     if (value == null ||
+            //         value.isEmpty ||
+            //         !AppRegex.isEmailValid(value)) {
+            //       return 'Please enter a valid email';
+            //     }
+            //     return null;
+            //   },
+            // ),
             CustomTextFormFiled(
-              controller: emailController,
+              backgroundColor: AppColor.white,
+              controller: userNameController,
               hintText: 'User Name',
               prefixIcon: const Icon(Icons.person, size: 18),
               validator: (value) {
-                if (value == null ||
-                    value.isEmpty ||
-                    !AppRegex.isEmailValid(value)) {
-                  return 'Please enter a valid email';
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a username';
+                }
+                if (value.length < 3) {
+                  return 'Username must be at least 3 characters';
                 }
                 return null;
               },
@@ -84,7 +99,7 @@ class _SignUp_pageState extends State<SignUp_page> {
               width: 331,
               onPressed: () {
                 if (formkey.currentState!.validate()) {
-                  print('Email: ${emailController.text}');
+                  print('Email: ${userNameController.text}');
                   print('Password: ${passwordController.text}');
                   Navigator.pushReplacementNamed(
                     context,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
+import 'package:two_day_flutter/core/utils/App_constant.dart';
 import 'package:two_day_flutter/core/utils/string.dart';
 
 class HomeTask_view extends StatelessWidget {
@@ -53,7 +55,7 @@ class HomeTask_view extends StatelessWidget {
                     },
                     child: const CircleAvatar(
                       radius: 28,
-                      backgroundImage: AssetImage('assets/images/logo.jpg'),
+                      backgroundImage: AssetImage(AppAssets.logo),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -75,7 +77,12 @@ class HomeTask_view extends StatelessWidget {
                   ),
                   const Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        Routes.AddTask_view,
+                      );
+                    },
                     icon: const Icon(Icons.add_box_outlined),
                   ),
                 ],
@@ -86,7 +93,11 @@ class HomeTask_view extends StatelessWidget {
                 children: [
                   const Text(
                     "Tasks",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: AppConstants.fontFamily,
+                    ),
                   ),
                   const SizedBox(width: 8),
 
@@ -103,7 +114,7 @@ class HomeTask_view extends StatelessWidget {
                       tasks.length.toString(),
                       style: const TextStyle(
                         color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w300,
                       ),
                     ),
                   ),
@@ -139,8 +150,10 @@ class HomeTask_view extends StatelessWidget {
                               Text(
                                 task['title']!,
                                 style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
                                   color: Colors.black54,
+                                  fontFamily: AppConstants.fontFamily,
                                 ),
                               ),
                               Text(
@@ -149,6 +162,8 @@ class HomeTask_view extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 12,
                                   color: Colors.black54,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: AppConstants.fontFamily,
                                 ),
                               ),
                             ],
@@ -156,7 +171,11 @@ class HomeTask_view extends StatelessWidget {
                           const SizedBox(height: 8),
                           Text(
                             task['description']!,
-                            style: const TextStyle(fontSize: 14),
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w300,
+                              fontFamily: AppConstants.fontFamily,
+                            ),
                           ),
                         ],
                       ),

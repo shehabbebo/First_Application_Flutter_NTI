@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/custom_buttom.dart';
 import 'package:two_day_flutter/core/utils/App_color.dart';
 import 'package:two_day_flutter/core/utils/App_constant.dart';
@@ -18,7 +19,7 @@ class Start_view extends StatelessWidget {
             width: double.infinity,
             child: Center(
               child: Center(
-                child: Image.asset('assets/images/start.png', fit: BoxFit.fill),
+                child: Image.asset(AppAssets.Start, fit: BoxFit.fill),
               ),
             ),
           ),

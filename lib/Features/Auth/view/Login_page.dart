@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
 import 'package:two_day_flutter/core/utils/app_regex.dart';
 import 'package:two_day_flutter/core/utils/custom_buttom.dart';
@@ -17,7 +18,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController userNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
@@ -40,23 +41,39 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.36,
                 width: double.infinity,
-                child: Image.asset('assets/images/logo.jpg', fit: BoxFit.fill),
+                child: Image.asset(AppAssets.logo, fit: BoxFit.fill),
               ),
               SizedBox(height: 15),
+              // CustomTextFormFiled(
+              //   backgroundColor: AppColor.white,
+              //   controller: emailController,
+              //   hintText: 'Email',
+              //   prefixIcon: const Icon(Icons.person, size: 18),
+              //   validator: (value) {
+              //     if (value == null ||
+              //         value.isEmpty ||
+              //         !AppRegex.isEmailValid(value)) {
+              //       return 'Please enter a valid email';
+              //     }
+              //     return null;
+              //   },
+              // ),
               CustomTextFormFiled(
                 backgroundColor: AppColor.white,
-                controller: emailController,
+                controller: userNameController,
                 hintText: 'User Name',
                 prefixIcon: const Icon(Icons.person, size: 18),
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      !AppRegex.isEmailValid(value)) {
-                    return 'Please enter a valid email';
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a username';
+                  }
+                  if (value.length < 3) {
+                    return 'Username must be at least 3 characters';
                   }
                   return null;
                 },
               ),
+
               SizedBox(height: 12),
               CustomTextFormFiled(
                 backgroundColor: AppColor.white,
@@ -211,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                       return;
                     }
 
-                    print('Username: ${emailController.text}');
+                    print('Username: ${userNameController.text}');
                     print('Password: ${passwordController.text}');
                     print('Gender: $selectedGender');
                     Navigator.pushReplacementNamed(

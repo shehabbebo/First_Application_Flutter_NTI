@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
 import 'package:two_day_flutter/Features/onBoarding/view/Start_view.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/App_color.dart';
 
 class Splash_view extends StatefulWidget {
@@ -33,7 +34,7 @@ class _Splash_viewState extends State<Splash_view> {
             height: MediaQuery.of(context).size.height * .50,
             width: double.infinity,
             child: Center(
-              child: Image.asset('assets/images/Group.png', fit: BoxFit.fill),
+              child: Image.asset(AppAssets.Group, fit: BoxFit.fill),
             ),
           ),
           SizedBox(height: 15),

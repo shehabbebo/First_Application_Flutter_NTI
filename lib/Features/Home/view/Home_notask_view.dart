@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:two_day_flutter/core/utils/App_assets.dart';
+import 'package:two_day_flutter/core/utils/App_constant.dart';
 import 'package:two_day_flutter/core/utils/string.dart';
 
 class Home_notask_view extends StatelessWidget {
@@ -59,29 +60,38 @@ class Home_notask_view extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 70),
 
               const Center(
                 child: Column(
                   children: [
                     Text(
                       "There are no tasks yet,",
-                      style: TextStyle(fontSize: 16, color: Colors.black87),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                        fontFamily: AppConstants.fontFamily,
+                      ),
                     ),
                     Text(
                       "Press the button",
-                      style: TextStyle(fontSize: 16, color: Colors.black87),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                        fontFamily: AppConstants.fontFamily,
+                      ),
                     ),
                     Text(
                       "To add New Task",
-                      style: TextStyle(fontSize: 16, color: Colors.black87),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                        fontFamily: AppConstants.fontFamily,
+                      ),
                     ),
                     SizedBox(height: 40),
 
-                    Image(
-                      image: AssetImage('assets/images/task.png'),
-                      height: 200,
-                    ),
+                    Image(image: AssetImage(AppAssets.Task), height: 268),
                   ],
                 ),
               ),

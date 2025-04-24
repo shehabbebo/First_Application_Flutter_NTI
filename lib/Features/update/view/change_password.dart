@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
 import 'package:two_day_flutter/core/utils/app_regex.dart';
 import 'package:two_day_flutter/core/utils/custom_buttom.dart';
@@ -27,7 +28,7 @@ class _ChangePassword_viewState extends State<ChangePassword_view> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.36,
               width: double.infinity,
-              child: Image.asset('assets/images/logo.jpg', fit: BoxFit.fill),
+              child: Image.asset(AppAssets.logo, fit: BoxFit.fill),
             ),
             SizedBox(height: 20),
             CustomTextFormFiled(
