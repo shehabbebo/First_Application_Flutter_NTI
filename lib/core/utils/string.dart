@@ -20,4 +20,8 @@ class Routes {
   static const ChangePassword_view = '/ChangePassword_view';
   static const Lanuage_view = '/Lanuage_view';
   static const AddTask_view = '/AddTask_view';
+  static const TasksPage_view = '/TasksPage_view';
+  static const FilterPage_view = '/FilterPage_view';
+  static const EditTaskView = '/EditTaskView';
+  static const EditTaskDoneView = '/EditTaskDoneView';
 }

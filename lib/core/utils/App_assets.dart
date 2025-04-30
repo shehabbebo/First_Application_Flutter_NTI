@@ -8,4 +8,5 @@ abstract class AppAssets {
   static const String Group = "${basePath}Group.png";
   static const String Start = "${basePath}start.png";
   static const String Task = "${basePath}task.png";
+  static const String Add = "${basePath}add2.png";
 }

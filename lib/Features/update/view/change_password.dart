@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
-import 'package:two_day_flutter/core/utils/app_regex.dart';
+import 'package:two_day_flutter/core/helper/app_regex.dart';
 import 'package:two_day_flutter/core/utils/custom_buttom.dart';
 import 'package:two_day_flutter/core/utils/App_color.dart';
 

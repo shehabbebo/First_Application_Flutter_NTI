@@ -1,35 +1,230 @@
+// import 'package:flutter/material.dart';
+// import 'package:two_day_flutter/core/utils/App_assets.dart';
+// import 'package:two_day_flutter/core/utils/App_constant.dart';
+// import 'package:two_day_flutter/core/utils/string.dart';
+
+// class HomeTask_view extends StatelessWidget {
+//   const HomeTask_view({super.key});
+
+//   final List<Map<String, String>> tasks = const [
+//     {
+//       'title': 'My First Task',
+//       'description': 'Improve my English skills\n by trying to speek',
+//       'date': '11/03/2025',
+//       'time': '05:00 PM',
+//     },
+//     {
+//       'title': 'My Second Task',
+//       'description': 'Improve my English skills\n by trying to speek',
+//       'date': '11/03/2025',
+//       'time': '05:00 PM',
+//     },
+//     {
+//       'title': 'My Third Task',
+//       'description': 'Improve my English skills\n by trying to speek',
+//       'date': '11/03/2025',
+//       'time': '05:00 PM',
+//     },
+//     {
+//       'title': 'My Fourth Task',
+//       'description': 'Improve my English skills\n by trying to speek',
+//       'date': '11/03/2025',
+//       'time': '05:00 PM',
+//     },
+//     {
+//       'title': 'My Fifth Task',
+//       'description': 'Improve my English skills\n by trying to speek',
+//       'date': '11/03/2025',
+//       'time': '05:00 PM',
+//     },
+//     {
+//       'title': 'My Sixth Task',
+//       'description': 'Improve my English skills\n by trying to speek',
+//       'date': '11/03/2025',
+//       'time': '05:00 PM',
+//     },
+//     {
+//       'title': 'My Seventh Task',
+//       'description': 'Improve my English skills\n by trying to speek',
+//       'date': '11/03/2025',
+//       'time': '05:00 PM',
+//     },
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       body: SafeArea(
+//         child: Padding(
+//           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Row(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   GestureDetector(
+//                     onTap: () {
+//                       Navigator.pushReplacementNamed(
+//                         context,
+//                         Routes.Profile_view,
+//                       );
+//                     },
+//                     child: const CircleAvatar(
+//                       radius: 28,
+//                       backgroundImage: AssetImage(AppAssets.logo),
+//                     ),
+//                   ),
+//                   const SizedBox(width: 12),
+//                   const Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Text(
+//                         "Hello!",
+//                         style: TextStyle(fontSize: 16, color: Colors.black54),
+//                       ),
+//                       Text(
+//                         "shehab",
+//                         style: TextStyle(
+//                           fontSize: 18,
+//                           fontWeight: FontWeight.bold,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                   const Spacer(),
+//                   IconButton(
+//                     onPressed: () {
+//                       Navigator.pushReplacementNamed(
+//                         context,
+//                         Routes.AddTask_view,
+//                       );
+//                     },
+//                     icon: const Icon(Icons.add_box_outlined),
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(height: 20),
+
+//               Row(
+//                 children: [
+//                   const Text(
+//                     "Tasks",
+//                     style: TextStyle(
+//                       fontSize: 14,
+//                       fontWeight: FontWeight.w300,
+//                       fontFamily: AppConstants.fontFamily,
+//                     ),
+//                   ),
+//                   const SizedBox(width: 8),
+
+//                   Container(
+//                     padding: const EdgeInsets.symmetric(
+//                       horizontal: 8,
+//                       vertical: 2,
+//                     ),
+//                     decoration: BoxDecoration(
+//                       color: Color(0xffCEEBDC),
+//                       borderRadius: BorderRadius.circular(12),
+//                     ),
+//                     child: Text(
+//                       tasks.length.toString(),
+//                       style: const TextStyle(
+//                         color: Colors.black87,
+//                         fontWeight: FontWeight.w300,
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               const SizedBox(height: 12),
+
+//               Expanded(
+//                 child: ListView.builder(
+//                   itemCount: tasks.length,
+//                   itemBuilder: (context, index) {
+//                     final task = tasks[index];
+//                     return Container(
+//                       margin: const EdgeInsets.only(bottom: 12),
+//                       padding: const EdgeInsets.all(12),
+//                       decoration: BoxDecoration(
+//                         color: Color(0xffCEEBDC),
+//                         borderRadius: BorderRadius.circular(12),
+//                         boxShadow: [
+//                           BoxShadow(
+//                             color: Colors.grey.withOpacity(0.4),
+//                             blurRadius: 5,
+//                             offset: const Offset(0, 4),
+//                           ),
+//                         ],
+//                       ),
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                             children: [
+//                               Text(
+//                                 task['title']!,
+//                                 style: const TextStyle(
+//                                   fontWeight: FontWeight.w400,
+//                                   fontSize: 12,
+//                                   color: Colors.black54,
+//                                   fontFamily: AppConstants.fontFamily,
+//                                 ),
+//                               ),
+//                               Text(
+//                                 '${task['date']} \n${task['time']}',
+//                                 textAlign: TextAlign.right,
+//                                 style: const TextStyle(
+//                                   fontSize: 12,
+//                                   color: Colors.black54,
+//                                   fontWeight: FontWeight.w400,
+//                                   fontFamily: AppConstants.fontFamily,
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
+//                           const SizedBox(height: 8),
+//                           Text(
+//                             task['description']!,
+//                             style: const TextStyle(
+//                               fontSize: 14,
+//                               fontWeight: FontWeight.w300,
+//                               fontFamily: AppConstants.fontFamily,
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     );
+//                   },
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/App_constant.dart';
-import 'package:two_day_flutter/core/utils/string.dart';
+import 'package:two_day_flutter/core/utils/App_color.dart';
 
 class HomeTask_view extends StatelessWidget {
   const HomeTask_view({super.key});
 
   final List<Map<String, String>> tasks = const [
+    {'title': 'Work Task', 'description': 'Add New Features'},
     {
-      'title': 'My First Task',
-      'description': 'Improve my English skills\n by trying to speek',
-      'date': '11/03/2025',
-      'time': '05:00 PM',
+      'title': 'Personal Task',
+      'description': 'Improve my English skills by trying to speak',
     },
     {
-      'title': 'My Second Task',
-      'description': 'Improve my English skills\n by trying to speek',
-      'date': '11/03/2025',
-      'time': '05:00 PM',
-    },
-    {
-      'title': 'My Third Task',
-      'description': 'Improve my English skills\n by trying to speek',
-      'date': '11/03/2025',
-      'time': '05:00 PM',
-    },
-    {
-      'title': 'My Fourth Task',
-      'description': 'Improve my English skills\n by trying to speek',
-      'date': '11/03/2025',
-      'time': '05:00 PM',
+      'title': 'Home Task',
+      'description': 'Add new feature for Do It app and commit it',
     },
   ];
 
@@ -40,152 +235,278 @@ class HomeTask_view extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        Routes.Profile_view,
-                      );
-                    },
-                    child: const CircleAvatar(
-                      radius: 28,
-                      backgroundImage: AssetImage(AppAssets.logo),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: const CircleAvatar(
+                        radius: 28,
+                        backgroundImage: AssetImage(AppAssets.logo),
+                      ),
                     ),
+                    const SizedBox(width: 12),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hello!",
+                          style: TextStyle(fontSize: 16, color: Colors.black54),
+                        ),
+                        Text(
+                          "shehab",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
+                Container(
+                  height: 137,
+                  width: 335,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: AppColor.primaryColor,
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  const SizedBox(width: 12),
-                  const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Hello!",
-                        style: TextStyle(fontSize: 16, color: Colors.black54),
+                      const Text(
+                        "Your today's tasks\n almost done!",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
-                      Text(
-                        "shehab",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Text(
+                            "80%",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Spacer(),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: Color(0xFF199A8E),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: const Text("View Tasks"),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                        context,
-                        Routes.AddTask_view,
-                      );
-                    },
-                    icon: const Icon(Icons.add_box_outlined),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
+                ),
 
-              Row(
-                children: [
-                  const Text(
-                    "Tasks",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: AppConstants.fontFamily,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
+                const SizedBox(height: 20),
 
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xffCEEBDC),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      tasks.length.toString(),
-                      style: const TextStyle(
-                        color: Colors.black87,
+                Row(
+                  children: [
+                    const Text(
+                      "In Progress",
+                      style: TextStyle(
+                        fontSize: 14,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-
-              Expanded(
-                child: ListView.builder(
-                  itemCount: tasks.length,
-                  itemBuilder: (context, index) {
-                    final task = tasks[index];
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      padding: const EdgeInsets.all(12),
+                    const SizedBox(width: 16),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 2,
+                      ),
                       decoration: BoxDecoration(
                         color: Color(0xffCEEBDC),
                         borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.4),
-                            blurRadius: 5,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                task['title']!,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                  color: Colors.black54,
-                                  fontFamily: AppConstants.fontFamily,
-                                ),
-                              ),
-                              Text(
-                                '${task['date']} \n${task['time']}',
-                                textAlign: TextAlign.right,
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black54,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: AppConstants.fontFamily,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            task['description']!,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: AppConstants.fontFamily,
-                            ),
-                          ),
-                        ],
+                      child: Text(
+                        tasks.length.toString(),
+                        style: const TextStyle(
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w300,
+                        ),
                       ),
-                    );
-                  },
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                const SizedBox(height: 12),
+
+                SizedBox(
+                  height: 90,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: tasks.length,
+                    separatorBuilder:
+                        (context, index) => const SizedBox(width: 12),
+                    itemBuilder: (context, index) {
+                      final task = tasks[index];
+                      Color cardColor;
+                      String imagePath;
+
+                      if (task['title'] == 'Work Task') {
+                        cardColor = Colors.black;
+                        imagePath = 'assets/images/Bag.svg';
+                      } else if (task['title'] == 'Personal Task') {
+                        cardColor = Color(0xffCEEBDC);
+                        imagePath = 'assets/images/person.svg';
+                      } else {
+                        cardColor = Color(0xffFFE4F2);
+                        imagePath = 'assets/images/house.svg';
+                      }
+
+                      return Container(
+                        width: 234,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: cardColor,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  task['title'] ?? '',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color:
+                                        task['title'] == 'Work Task'
+                                            ? Colors.white
+                                            : Colors.black54,
+                                  ),
+                                ),
+                                const Spacer(),
+                                SvgPicture.asset(
+                                  imagePath,
+                                  width: 20,
+                                  height: 20,
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Expanded(
+                              child: Text(
+                                task['description'] ?? '',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      task['title'] == 'Work Task'
+                                          ? Colors.white
+                                          : Colors.black87,
+                                ),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                const Text(
+                  "Task Groups",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(height: 12),
+
+                Column(
+                  children: [
+                    _buildTaskGroup(
+                      imagePath: 'assets/images/person.svg',
+                      title: "Personal Task",
+                      count: 5,
+                    ),
+                    const SizedBox(height: 12),
+                    _buildTaskGroup(
+                      imagePath: 'assets/images/house.svg',
+                      title: "Home Task",
+                      count: 3,
+                    ),
+                    const SizedBox(height: 12),
+                    _buildTaskGroup(
+                      imagePath: 'assets/images/Bag.svg',
+                      title: "Work Task",
+                      count: 1,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 7),
+                Align(
+                  alignment: AlignmentDirectional.bottomEnd,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeTask_view(),
+                          ),
+                        );
+                      },
+                      child: Image.asset(AppAssets.Add, width: 50, height: 50),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildTaskGroup({
+    required String imagePath,
+    required String title,
+    required int count,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      decoration: BoxDecoration(
+        color: Color(0xffF9F9F9),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        children: [
+          SvgPicture.asset(imagePath, width: 24, height: 24, fit: BoxFit.cover),
+          const SizedBox(width: 12),
+          Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          ),
+          const Spacer(),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: Color(0xffCEEBDC),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: Text(count.toString(), style: const TextStyle(fontSize: 12)),
+          ),
+        ],
       ),
     );
   }

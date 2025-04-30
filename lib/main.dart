@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: AppConstants.fontFamily),
       onGenerateRoute: appRouter.generateRouter,
-      initialRoute: Routes.UpdateProfile_view,
+      initialRoute: Routes.AddTask_view,
     );
   }
 }
