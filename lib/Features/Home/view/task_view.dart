@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:two_day_flutter/Features/Home/view/filtring_task.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
 class TasksPage_view extends StatefulWidget {
   const TasksPage_view({super.key});
@@ -22,7 +23,7 @@ class _TasksPage_viewState extends State<TasksPage_view> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.popAndPushNamed(context, Routes.HomeTask_view);
           },
         ),
       ),
@@ -71,28 +72,28 @@ class _TasksPage_viewState extends State<TasksPage_view> {
                         title: 'Go to supermarket to buy some milk & eggs',
                         status: 'In Progress',
                         statusColor: const Color.fromARGB(255, 16, 93, 53),
-                        iconPath: 'assets/images/Group.png',
+                        iconPath: 'assets/images/work.png',
                         imagePath: 'assets/images/logo.jpg',
                       ),
                       taskCard(
                         title: 'Go to supermarket to buy some milk & eggs',
                         status: 'Done',
                         statusColor: Colors.green,
-                        iconPath: 'assets/images/Group.png',
+                        iconPath: 'assets/images/house.png',
                         imagePath: 'assets/images/logo.jpg',
                       ),
                       taskCard(
                         title: 'Add new feature for Do It app and commit it',
                         status: 'Done',
                         statusColor: Colors.green,
-                        iconPath: 'assets/images/Group.png',
+                        iconPath: 'assets/images/personal.png',
                         imagePath: 'assets/images/logo.jpg',
                       ),
                       taskCard(
                         title: 'Improve my English skills by trying to speak',
                         status: 'Missed',
                         statusColor: Colors.red,
-                        iconPath: 'assets/images/Group.png',
+                        iconPath: 'assets/images/house.png',
                         imagePath: 'assets/images/logo.jpg',
                       ),
                     ],

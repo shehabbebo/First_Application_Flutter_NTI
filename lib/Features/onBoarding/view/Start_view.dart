@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
+import 'package:two_day_flutter/Features/Auth/view/log_in_view.dart';
+import 'package:two_day_flutter/Features/Auth/view/signup_view.dart';
 import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/custom_buttom.dart';
 import 'package:two_day_flutter/core/utils/App_color.dart';
@@ -46,10 +47,11 @@ class Start_view extends StatelessWidget {
           SizedBox(height: 15),
           CustomBottom(
             text: "Let’s Start",
+
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
+                MaterialPageRoute(builder: (context) => signup_view()),
               );
             },
           ),

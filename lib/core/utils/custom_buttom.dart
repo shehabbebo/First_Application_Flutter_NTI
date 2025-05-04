@@ -36,7 +36,7 @@ class CustomBottom extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(14),
             ),
-            elevation: 0,
+            elevation: 5,
           ),
           onPressed: onPressed,
           child: Text(

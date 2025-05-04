@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:two_day_flutter/Features/Home/view/Home_notask_view.dart';
 import 'package:two_day_flutter/Features/Home/view/Home_taskView.dart';
-import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
+import 'package:two_day_flutter/Features/Auth/view/signup_view.dart';
 import 'package:two_day_flutter/Features/Home/view/filtring_task.dart';
 import 'package:two_day_flutter/Features/Home/view/task_view.dart';
 import 'package:two_day_flutter/Features/add_task/view/AddTask_view.dart';
@@ -10,7 +10,7 @@ import 'package:two_day_flutter/Features/add_task/view/edit_task_done.dart';
 import 'package:two_day_flutter/Features/update/view/change_password.dart';
 import 'package:two_day_flutter/Features/update/view/Profile_view.dart';
 import 'package:two_day_flutter/Features/update/view/Lanuage_view.dart';
-import 'package:two_day_flutter/Features/Auth/view/sign_up.dart';
+import 'package:two_day_flutter/Features/Auth/view/log_in_view.dart';
 import 'package:two_day_flutter/Features/onBoarding/view/Splash_view.dart';
 import 'package:two_day_flutter/Features/onBoarding/view/Start_view.dart';
 import 'package:two_day_flutter/Features/update/view/UpdateProfile_view.dart';
@@ -24,10 +24,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => Splash_view());
       case Routes.Start_view:
         return MaterialPageRoute(builder: (_) => Start_view());
-      case Routes.LoginPage:
-        return MaterialPageRoute(builder: (_) => LoginPage());
-      case Routes.SignUp_page:
-        return MaterialPageRoute(builder: (_) => SignUp_page());
+      case Routes.Login_view:
+        return MaterialPageRoute(builder: (_) => Login_view());
+      case Routes.signup_view:
+        return MaterialPageRoute(builder: (_) => signup_view());
       case Routes.Home_notask_view:
         return MaterialPageRoute(builder: (_) => Home_notask_view());
       case Routes.HomeTask_view:

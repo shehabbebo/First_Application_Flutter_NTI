@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
-import 'package:two_day_flutter/Features/onBoarding/view/Start_view.dart';
 import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/App_color.dart';
+import 'package:two_day_flutter/core/utils/string.dart';
 
 class Splash_view extends StatefulWidget {
   const Splash_view({super.key});
@@ -17,10 +16,7 @@ class _Splash_viewState extends State<Splash_view> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const Start_view()),
-      );
+      Navigator.pushReplacementNamed(context, Routes.Start_view);
     });
   }
 

@@ -1,38 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:two_day_flutter/Features/Auth/manger/sign_up_cubit.dart';
-import 'package:two_day_flutter/Features/Auth/manger/sign_up_state.dart';
+import 'package:two_day_flutter/Features/Auth/manger/log_in/login_cubit.dart';
+import 'package:two_day_flutter/Features/Auth/manger/log_in/login_state.dart';
+import 'package:two_day_flutter/Features/Home/cubit/home_notask/home_cubit.dart';
+import 'package:two_day_flutter/core/translation/translation_helper.dart';
+import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
-import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
+import 'package:two_day_flutter/Features/Auth/view/signup_view.dart';
 import 'package:two_day_flutter/core/helper/app_regex.dart';
 import 'package:two_day_flutter/core/utils/custom_buttom.dart';
 import 'package:two_day_flutter/core/utils/App_color.dart';
 import 'package:two_day_flutter/core/utils/string.dart';
 
-class SignUp_page extends StatelessWidget {
-  const SignUp_page({super.key});
+class Login_view extends StatelessWidget {
+  const Login_view({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.ScaffoldBackgroundColor,
       body: BlocProvider(
-        create: (context) => SignUpCubit(),
-        child: BlocConsumer<SignUpCubit, SignUpState>(
+        create: (context) => LoginCubit(),
+        child: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
-            if (state is SignUpSuccessState) {
+            if (state is LoginSuccessState) {
               ScaffoldMessenger.of(
                 context,
               ).showSnackBar(const SnackBar(content: Text('Sign Up Success')));
+              UserCubit.get(context).getUserData(user: state.userModel);
               Navigator.pushReplacementNamed(context, Routes.Home_notask_view);
-            } else if (state is SignUpErrorState) {
+            } else if (state is LoginErrorState) {
               ScaffoldMessenger.of(
                 context,
               ).showSnackBar(SnackBar(content: Text(state.error)));
             }
           },
           builder: (context, state) {
-            var cubit = SignUpCubit.get(context);
+            var cubit = LoginCubit.get(context);
             return Form(
               key: cubit.formkey,
               child: Column(
@@ -40,10 +44,7 @@ class SignUp_page extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.36,
                     width: double.infinity,
-                    child: Image.asset(
-                      'assets/images/logo.jpg',
-                      fit: BoxFit.fill,
-                    ),
+                    child: Image.asset(AppAssets.logo, fit: BoxFit.fill),
                   ),
                   SizedBox(height: 15),
 
@@ -90,12 +91,34 @@ class SignUp_page extends StatelessWidget {
 
                   SizedBox(height: 20),
                   CustomBottom(
-                    text: 'Sign Up',
+                    text: 'Log In',
                     height: 45,
                     width: 331,
                     onPressed: () {
-                      cubit.onsignUpPressed();
+                      cubit.onLoginPressed();
                     },
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      CustomBottom(
+                        text: 'Ar',
+                        height: 70,
+                        width: 70,
+                        onPressed: () {
+                          TranslationHelper.changeLanguage(true);
+                        },
+                      ),
+                      CustomBottom(
+                        text: 'en',
+                        height: 70,
+                        width: 70,
+                        onPressed: () {
+                          TranslationHelper.changeLanguage(false);
+                        },
+                      ),
+                    ],
                   ),
                   SizedBox(height: 20),
 
@@ -115,7 +138,7 @@ class SignUp_page extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginPage(),
+                              builder: (context) => signup_view(),
                             ),
                           );
                         },

@@ -9,7 +9,7 @@ class CustomTextFormFiled extends StatelessWidget {
     this.errorBorder,
     this.focusErrorBorder,
     this.inputTextStyle,
-    required this.hintText,
+    this.hintText,
     this.onSaved,
     this.onChange,
     this.isObscureText = false,
@@ -19,15 +19,16 @@ class CustomTextFormFiled extends StatelessWidget {
     required this.validator,
     this.controller,
     this.keyboardType,
+    this.label,
   });
-
+  final String? label;
   final EdgeInsetsGeometry? contentPading;
   final InputBorder? focusBorder;
   final InputBorder? enableBorder;
   final InputBorder? errorBorder;
   final InputBorder? focusErrorBorder;
   final TextStyle? inputTextStyle;
-  final String hintText;
+  final String? hintText;
   final void Function(String?)? onSaved;
   final void Function(String)? onChange;
   final bool isObscureText;

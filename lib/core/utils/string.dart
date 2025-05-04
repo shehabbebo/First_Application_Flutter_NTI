@@ -1,9 +1,9 @@
 import 'package:two_day_flutter/Features/Home/view/Home_notask_view.dart';
 import 'package:two_day_flutter/Features/Home/view/Home_taskView.dart';
-import 'package:two_day_flutter/Features/Auth/view/Login_page.dart';
+import 'package:two_day_flutter/Features/Auth/view/signup_view.dart';
 import 'package:two_day_flutter/Features/update/view/Profile_view.dart';
 import 'package:two_day_flutter/Features/update/view/Lanuage_view.dart';
-import 'package:two_day_flutter/Features/Auth/view/sign_up.dart';
+import 'package:two_day_flutter/Features/Auth/view/log_in_view.dart';
 import 'package:two_day_flutter/Features/onBoarding/view/Splash_view.dart';
 import 'package:two_day_flutter/Features/onBoarding/view/Start_view.dart';
 import 'package:two_day_flutter/Features/update/view/UpdateProfile_view.dart';
@@ -11,8 +11,8 @@ import 'package:two_day_flutter/Features/update/view/UpdateProfile_view.dart';
 class Routes {
   static const Splash_view = '/Splash_view';
   static const Start_view = '/Start_view';
-  static const LoginPage = '/LoginPage';
-  static const SignUp_page = '/SignUp_page';
+  static const Login_view = '/Login_view';
+  static const signup_view = '/signup_view';
   static const Home_notask_view = '/Home_notask_view';
   static const HomeTask_view = '/HomeTask_view';
   static const Profile_view = '/Profile_view';

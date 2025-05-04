@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:two_day_flutter/Features/Auth/manger/login_cubit/login_cubit.dart';
-import 'package:two_day_flutter/Features/Auth/manger/login_cubit/login_state.dart';
-import 'package:two_day_flutter/Features/Auth/view/sign_up.dart';
+import 'package:two_day_flutter/Features/Auth/manger/signup_cubit/signup_cubit.dart';
+import 'package:two_day_flutter/Features/Auth/manger/signup_cubit/signup_state.dart';
+import 'package:two_day_flutter/Features/Auth/view/log_in_view.dart';
 import 'package:two_day_flutter/core/utils/App_assets.dart';
 import 'package:two_day_flutter/core/utils/App_color.dart';
 import 'package:two_day_flutter/core/utils/App_constant.dart';
@@ -11,30 +11,31 @@ import 'package:two_day_flutter/core/helper/app_regex.dart';
 import 'package:two_day_flutter/core/utils/custom_buttom.dart';
 import 'package:two_day_flutter/core/utils/string.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class signup_view extends StatelessWidget {
+  const signup_view({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.ScaffoldBackgroundColor,
       body: BlocProvider(
-        create: (context) => LoginCubit(),
-        child: BlocConsumer<LoginCubit, LoginState>(
+        create: (context) => SignupCubit(),
+        child: BlocConsumer<SignupCubit, SignupState>(
           listener: (context, state) {
             if (state is LoginSuccessState) {
               ScaffoldMessenger.of(
                 context,
               ).showSnackBar(const SnackBar(content: Text('Login Success')));
+
               Navigator.pushReplacementNamed(context, Routes.Home_notask_view);
-            } else if (state is LoginErrorState) {
+            } else if (state is SignupErrorState) {
               ScaffoldMessenger.of(
                 context,
               ).showSnackBar(SnackBar(content: Text(state.error)));
             }
           },
           builder: (context, state) {
-            var cubit = LoginCubit.get(context);
+            var cubit = SignupCubit.get(context);
             return Form(
               key: cubit.formkey,
               child: SingleChildScrollView(
@@ -194,7 +195,7 @@ class LoginPage extends StatelessWidget {
                       width: 331,
                       text: 'Sign Up',
                       onPressed: () {
-                        cubit.onLoginPressed();
+                        cubit.onsignUpPressed();
                       },
                     ),
 
@@ -217,7 +218,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SignUp_page(),
+                                builder: (context) => const Login_view(),
                               ),
                             );
                           },
