@@ -1,4 +1,4 @@
-name: two_day_flutter
+name: ToDoApp
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -29,6 +29,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
+  dio: ^5.8.0+1
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
@@ -37,10 +39,9 @@ dependencies:
   font_awesome_icon_class: ^0.0.6
   get: ^4.7.2
   getx_test: ^1.0.3
-  # shared_preferences: ^2.5.3
-  image_picker: ^1.1.2
-  shared_preferences:
-
+  image_picker: null
+  intl: ^0.20.2
+  shared_preferences: null
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -81,7 +82,6 @@ flutter:
         - asset: assets/fonts/Lexend Deca/LexendDeca-SemiBold.ttf
         - asset: assets/fonts/Lexend Deca/LexendDeca-Medium.ttf
         - asset: assets/fonts/Lexend Deca/LexendDeca-Thin.ttf
-
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

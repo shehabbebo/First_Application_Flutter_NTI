@@ -1,15 +1,18 @@
+import 'dart:io';
+import 'package:ToDoApp/Features/Auth/manger/signup_cubit/signup_cubit.dart';
+import 'package:ToDoApp/Features/Auth/manger/signup_cubit/signup_state.dart';
+import 'package:ToDoApp/Features/Auth/view/log_in_view.dart';
+import 'package:ToDoApp/core/constant/app_constant.dart';
+import 'package:ToDoApp/core/helper/app_regex.dart';
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/App_color.dart';
+import 'package:ToDoApp/core/utils/string.dart';
+import 'package:ToDoApp/core/widgets/Custom_Text_filed.dart';
+import 'package:ToDoApp/core/widgets/custom_buttom.dart';
+import 'package:ToDoApp/core/widgets/image_manager/image_manager_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:two_day_flutter/Features/Auth/manger/signup_cubit/signup_cubit.dart';
-import 'package:two_day_flutter/Features/Auth/manger/signup_cubit/signup_state.dart';
-import 'package:two_day_flutter/Features/Auth/view/log_in_view.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/App_color.dart';
-import 'package:two_day_flutter/core/utils/App_constant.dart';
-import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
-import 'package:two_day_flutter/core/helper/app_regex.dart';
-import 'package:two_day_flutter/core/utils/custom_buttom.dart';
-import 'package:two_day_flutter/core/utils/string.dart';
+import 'package:image_picker/image_picker.dart';
 
 class signup_view extends StatelessWidget {
   const signup_view({super.key});
@@ -22,12 +25,12 @@ class signup_view extends StatelessWidget {
         create: (context) => SignupCubit(),
         child: BlocConsumer<SignupCubit, SignupState>(
           listener: (context, state) {
-            if (state is LoginSuccessState) {
+            if (state is SignupSuccessState) {
               ScaffoldMessenger.of(
                 context,
               ).showSnackBar(const SnackBar(content: Text('Login Success')));
 
-              Navigator.pushReplacementNamed(context, Routes.Home_notask_view);
+              Navigator.pushReplacementNamed(context, Routes.Login_view);
             } else if (state is SignupErrorState) {
               ScaffoldMessenger.of(
                 context,
@@ -41,13 +44,47 @@ class signup_view extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.36,
-                      width: double.infinity,
-                      child: Image.asset(AppAssets.logo, fit: BoxFit.fill),
+                    ImageManagerView(
+                      onPicked: (XFile image) {
+                        SignupCubit.get(context).image = image;
+                      },
+                      pickedBody: (XFile image) {
+                        return Container(
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.height * 0.36,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                            image: DecorationImage(
+                              image: FileImage(File(image.path)),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      },
+                      unPickedBody: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        ),
+                        child: Image.asset(
+                          AppAssets.logo,
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.height * 0.36,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 20),
 
+                    // SizedBox(
+                    //   height: MediaQuery.of(context).size.height * 0.36,
+                    //   width: double.infinity,
+                    //   child: Image.asset(AppAssets.logo, fit: BoxFit.fill),
+                    // ),
+                    // const SizedBox(height: 15),
                     CustomTextFormFiled(
                       backgroundColor: AppColor.white,
                       controller: cubit.userNameController,

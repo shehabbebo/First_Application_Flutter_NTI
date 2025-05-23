@@ -1,13 +1,3 @@
-import 'package:two_day_flutter/Features/Home/view/Home_notask_view.dart';
-import 'package:two_day_flutter/Features/Home/view/Home_taskView.dart';
-import 'package:two_day_flutter/Features/Auth/view/signup_view.dart';
-import 'package:two_day_flutter/Features/update/view/Profile_view.dart';
-import 'package:two_day_flutter/Features/update/view/Lanuage_view.dart';
-import 'package:two_day_flutter/Features/Auth/view/log_in_view.dart';
-import 'package:two_day_flutter/Features/onBoarding/view/Splash_view.dart';
-import 'package:two_day_flutter/Features/onBoarding/view/Start_view.dart';
-import 'package:two_day_flutter/Features/update/view/UpdateProfile_view.dart';
-
 class Routes {
   static const Splash_view = '/Splash_view';
   static const Start_view = '/Start_view';

@@ -1,55 +1,59 @@
+import 'package:ToDoApp/Features/add_task/data/models/category_model.dart';
+import 'package:ToDoApp/Features/add_task/data/models/get_tasks_response_model.dart';
+import 'package:ToDoApp/Features/add_task/data/repo/task_repo.dart';
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/App_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:two_day_flutter/Features/add_task/data/models/category_model.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/App_color.dart';
 
 import 'add_task_state.dart';
 
 class AddTaskCubit extends Cubit<AddTaskState> {
   AddTaskCubit() : super(AddTaskInitialState());
   static AddTaskCubit get(context) => BlocProvider.of(context);
+  TasksRepo tasksRepo = TasksRepo();
 
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController endDateController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  DateTime? endDate;
 
   CategoryModel? group;
-  void changeGroup(CategoryModel group) {
-    this.group = group;
-    emit(AddTaskChangeGroupState());
-  }
 
   List<CategoryModel> categories = [
     CategoryModel(
       title: 'Home',
-      //icon: Icon(Icons.home, color: Colors.pink),
+
       imagePath: AppAssets.house,
       bgColor: AppColor.black,
     ),
     CategoryModel(
       title: 'Personal',
-      //icon: Icon(Icons.person, color: AppColor.primaryColor),
+
       imagePath: AppAssets.personal,
       bgColor: AppColor.black,
     ),
     CategoryModel(
       title: 'Work',
-      // icon: Icon(Icons.work, color: AppColor.primaryColor),
+
       imagePath: AppAssets.work,
       bgColor: AppColor.black,
     ),
   ];
 
-  DateTime? endDate;
   void changeEndDate(DateTime date) {
     endDate = date;
     endDateController.text = "${date.year}-${date.month}-${date.day}";
     emit(AddTaskChangeEndDateState());
+  }
+
+  void changeGroup(CategoryModel group) {
+    this.group = group;
+    emit(AddTaskChangeGroupState());
   }
 
   XFile? image;
@@ -59,9 +63,24 @@ class AddTaskCubit extends Cubit<AddTaskState> {
     emit(AddTaskChangeImageState());
   }
 
-  void onAddTaskPressed() {
-    emit(AddTaskLoadingState());
+  void onAddTaskPressed() async {
+    print("pressed2");
     if (!formKey.currentState!.validate()) return;
-    emit(AddTaskSuccessState());
+    emit(AddTaskLoadingState());
+    var result = await tasksRepo.addTask(
+      task: TaskModel(
+        title: titleController.text,
+        description: descriptionController.text,
+        image: image,
+      ),
+    );
+    result.fold(
+      (error) {
+        emit(AddTaskErrorState(error: error));
+      },
+      (message) {
+        emit(AddTaskSuccessState(message: message));
+      },
+    );
   }
 }

@@ -1,13 +1,13 @@
 import 'dart:io';
+import 'package:ToDoApp/Features/add_task/data/models/category_model.dart';
+import 'package:ToDoApp/Features/add_task/manager/add_task_cubit/add_task_cubit.dart';
+import 'package:ToDoApp/Features/add_task/manager/add_task_cubit/add_task_state.dart';
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/App_color.dart';
+import 'package:ToDoApp/core/widgets/Custom_Text_filed.dart';
+import 'package:ToDoApp/core/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:two_day_flutter/Features/add_task/data/models/category_model.dart';
-import 'package:two_day_flutter/Features/add_task/manager/add_task_cubit/add_task_cubit.dart';
-import 'package:two_day_flutter/Features/add_task/manager/add_task_cubit/add_task_state.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
-import 'package:two_day_flutter/core/utils/custom_buttom.dart';
-import 'package:two_day_flutter/core/utils/App_color.dart';
 
 class AddTask_view extends StatelessWidget {
   const AddTask_view({super.key});
@@ -17,7 +17,17 @@ class AddTask_view extends StatelessWidget {
     return BlocProvider(
       create: (context) => AddTaskCubit(),
       child: BlocConsumer<AddTaskCubit, AddTaskState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is AddTaskErrorState) {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(state.error)));
+          } else if (state is AddTaskSuccessState) {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(const SnackBar(content: Text('Task Added')));
+          }
+        },
         builder: (context, state) {
           var cubit = AddTaskCubit.get(context);
 
@@ -67,7 +77,7 @@ class AddTask_view extends StatelessWidget {
                     const SizedBox(height: 20),
 
                     CustomTextFormFiled(
-                      controller: cubit.titleController,
+                      controller: AddTaskCubit.get(context).titleController,
                       backgroundColor: AppColor.white,
                       hintText: 'Title',
                       validator:
@@ -79,7 +89,8 @@ class AddTask_view extends StatelessWidget {
                     const SizedBox(height: 15),
 
                     CustomTextFormFiled(
-                      controller: cubit.descriptionController,
+                      controller:
+                          AddTaskCubit.get(context).descriptionController,
                       backgroundColor: AppColor.white,
                       hintText: 'Description',
                       validator:
@@ -172,13 +183,16 @@ class AddTask_view extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
 
-                    CustomBottom(
-                      text: "Add Task",
-                      height: 50,
-                      onPressed: () {
-                        cubit.onAddTaskPressed();
-                      },
-                    ),
+                    state is AddTaskLoadingState
+                        ? const CircularProgressIndicator()
+                        : CustomBottom(
+                          text: "Add  Task",
+                          height: 50,
+                          onPressed: () {
+                            print("pressed");
+                            cubit.onAddTaskPressed();
+                          },
+                        ),
                   ],
                 ),
               ),

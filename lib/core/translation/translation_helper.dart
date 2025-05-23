@@ -1,10 +1,9 @@
+import 'package:ToDoApp/core/cashe/cache_data.dart';
+import 'package:ToDoApp/core/cashe/cache_helper.dart';
+import 'package:ToDoApp/core/cashe/cache_keys.dart';
+import 'package:ToDoApp/core/translation/translation_keys.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:two_day_flutter/core/cashe/cache_data.dart';
-import 'package:two_day_flutter/core/cashe/cache_helper.dart';
-import 'package:two_day_flutter/core/cashe/cache_keys.dart';
-import 'package:two_day_flutter/core/translation/translation_keys.dart';
-
 import 'ar.dart';
 import 'en.dart';
 

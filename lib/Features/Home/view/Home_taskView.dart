@@ -1,8 +1,8 @@
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/App_color.dart';
+import 'package:ToDoApp/core/utils/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/App_color.dart';
-import 'package:two_day_flutter/core/utils/string.dart';
 
 class HomeTask_view extends StatelessWidget {
   const HomeTask_view({super.key});

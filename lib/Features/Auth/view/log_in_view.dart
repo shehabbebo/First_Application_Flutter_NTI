@@ -1,16 +1,18 @@
+import 'package:ToDoApp/Features/Auth/manger/log_in/login_cubit.dart';
+import 'package:ToDoApp/Features/Auth/manger/log_in/login_state.dart';
+import 'package:ToDoApp/Features/Auth/view/signup_view.dart';
+import 'package:ToDoApp/Features/Home/cubit/home_notask/home_cubit.dart';
+import 'package:ToDoApp/Features/Home/view/Home_notask_view.dart';
+import 'package:ToDoApp/core/helper/app_regex.dart';
+import 'package:ToDoApp/core/translation/translation_helper.dart';
+import 'package:ToDoApp/core/translation/translation_keys.dart';
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/App_color.dart';
+import 'package:ToDoApp/core/widgets/Custom_Text_filed.dart';
+import 'package:ToDoApp/core/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:two_day_flutter/Features/Auth/manger/log_in/login_cubit.dart';
-import 'package:two_day_flutter/Features/Auth/manger/log_in/login_state.dart';
-import 'package:two_day_flutter/Features/Home/cubit/home_notask/home_cubit.dart';
-import 'package:two_day_flutter/core/translation/translation_helper.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
-import 'package:two_day_flutter/Features/Auth/view/signup_view.dart';
-import 'package:two_day_flutter/core/helper/app_regex.dart';
-import 'package:two_day_flutter/core/utils/custom_buttom.dart';
-import 'package:two_day_flutter/core/utils/App_color.dart';
-import 'package:two_day_flutter/core/utils/string.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
 
 class Login_view extends StatelessWidget {
   const Login_view({super.key});
@@ -26,9 +28,13 @@ class Login_view extends StatelessWidget {
             if (state is LoginSuccessState) {
               ScaffoldMessenger.of(
                 context,
-              ).showSnackBar(const SnackBar(content: Text('Sign Up Success')));
+              ).showSnackBar(const SnackBar(content: Text('Sign In Success')));
               UserCubit.get(context).getUserData(user: state.userModel);
-              Navigator.pushReplacementNamed(context, Routes.Home_notask_view);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Home_notask_view()),
+              );
+              // Navigator.pushReplacementNamed(context, Routes.Home_notask_view);
             } else if (state is LoginErrorState) {
               ScaffoldMessenger.of(
                 context,
@@ -91,7 +97,7 @@ class Login_view extends StatelessWidget {
 
                   SizedBox(height: 20),
                   CustomBottom(
-                    text: 'Log In',
+                    text: TranslationKeys.login.tr,
                     height: 45,
                     width: 331,
                     onPressed: () {
@@ -126,7 +132,7 @@ class Login_view extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Don’t Have An Account ',
+                        TranslationKeys.userNoAccountTitle.tr,
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,

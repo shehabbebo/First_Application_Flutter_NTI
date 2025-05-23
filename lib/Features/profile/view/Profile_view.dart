@@ -1,6 +1,6 @@
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/string.dart';
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/string.dart';
 
 class Profile_view extends StatelessWidget {
   const Profile_view({super.key});

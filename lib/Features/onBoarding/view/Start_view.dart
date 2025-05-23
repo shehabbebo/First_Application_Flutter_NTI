@@ -1,10 +1,12 @@
+import 'package:ToDoApp/Features/Auth/view/signup_view.dart';
+import 'package:ToDoApp/core/cashe/cache_helper.dart';
+import 'package:ToDoApp/core/cashe/cache_keys.dart';
+import 'package:ToDoApp/core/constant/app_constant.dart';
+import 'package:ToDoApp/core/helper/my_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/Features/Auth/view/log_in_view.dart';
-import 'package:two_day_flutter/Features/Auth/view/signup_view.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/custom_buttom.dart';
-import 'package:two_day_flutter/core/utils/App_color.dart';
-import 'package:two_day_flutter/core/utils/App_constant.dart';
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/App_color.dart';
+import 'package:ToDoApp/core/widgets/custom_buttom.dart';
 
 class Start_view extends StatelessWidget {
   const Start_view({super.key});
@@ -48,11 +50,16 @@ class Start_view extends StatelessWidget {
           CustomBottom(
             text: "Let’s Start",
 
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => signup_view()),
+            onPressed: () async {
+              await CacheHelper.saveData(
+                key: CacheKeys.firstTime,
+                value: false,
               );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => signup_view()),
+              // );
+              MyNavigator.goTo(screen: () => signup_view(), isReplace: true);
             },
           ),
         ],

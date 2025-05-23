@@ -1,9 +1,8 @@
+import 'package:ToDoApp/core/utils/App_assets.dart';
+import 'package:ToDoApp/core/utils/App_color.dart';
+import 'package:ToDoApp/core/widgets/Custom_Text_filed.dart';
+import 'package:ToDoApp/core/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
-import 'package:two_day_flutter/core/utils/App_assets.dart';
-import 'package:two_day_flutter/core/utils/Custom_Text_filed.dart';
-import 'package:two_day_flutter/core/helper/app_regex.dart';
-import 'package:two_day_flutter/core/utils/custom_buttom.dart';
-import 'package:two_day_flutter/core/utils/App_color.dart';
 
 class UpdateProfile_view extends StatefulWidget {
   const UpdateProfile_view({super.key});

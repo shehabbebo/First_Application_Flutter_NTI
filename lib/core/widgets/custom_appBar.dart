@@ -1,10 +1,17 @@
+import 'package:ToDoApp/core/utils/App_color.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
+  final Widget? leading;
 
-  const CustomAppBar({super.key, required this.title, this.actions});
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.actions,
+    this.leading,
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -12,9 +19,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: AppColor.ScaffoldBackgroundColor,
       title: Text(title, style: const TextStyle(color: Colors.black)),
       centerTitle: true,
       actions: actions,
+      leading: leading,
     );
   }
 }
